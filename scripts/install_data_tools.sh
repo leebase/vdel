@@ -7,7 +7,7 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   ca-certificates curl git build-essential \
   python3 python3-pip python3-venv python-is-python3 \
-  sqlite3 postgresql-client default-mysql-client duckdb \
+  sqlite3 postgresql-client default-mysql-client \
   less nano
 
 apt-get clean && rm -rf /var/lib/apt/lists/*

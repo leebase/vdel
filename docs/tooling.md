@@ -19,8 +19,8 @@ docker compose run --rm vdel dbt --version
 # SQLFluff
 make lint
 
-# DB CLIs
-docker compose run --rm vdel duckdb --version
+# DB CLIs (DuckDB via Python)
+docker compose run --rm vdel python -c "import duckdb; print(duckdb.__version__)"
 docker compose run --rm vdel sqlite3 --version
 docker compose run --rm vdel psql --version
 docker compose run --rm vdel mysql --version || docker compose run --rm vdel mariadb --version

@@ -5,3 +5,4 @@ dbt-snowflake
 sqlfluff
 sqlfluff-templater-dbt
 jupyterlab
+duckdb
