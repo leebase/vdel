@@ -15,7 +15,7 @@
 
 ## PR Sequence
 
-### 01. Repo scaffold
+### 01. Repo scaffold — Status: DONE ✅
 **Title**: Scaffold VDEL repo
 
 **Goal**: Establish base repository structure, licensing, and collaboration hygiene.
@@ -28,17 +28,17 @@
 - `.github/pull_request_template.md`
 
 **Acceptance Criteria**:
-- [ ] Repo has MIT license and contributor docs skeleton.
-- [ ] PR template guides roadmap-driven contributions.
-- [ ] README introduces VDEL vision and dev setup assumptions.
-- [ ] Docs folder includes placeholders aligned to roadmap.
+- [x] Repo has MIT license and contributor docs skeleton.
+- [x] PR template guides roadmap-driven contributions.
+- [x] README introduces VDEL vision and dev setup assumptions.
+- [x] Docs folder includes placeholders aligned to roadmap.
 
 **Verify**:
 ```sh
 ls -R | head
 ```
 
-### 02. Hello container + docker-compose + Makefile + CI build to GHCR
+### 02. Hello container + docker-compose + Makefile + CI build to GHCR — Status: DONE ✅
 **Title**: Bootstrap container build & publish
 
 **Goal**: Deliver minimal runnable container, compose stack, and automated GHCR publishing on `main`.
@@ -51,10 +51,10 @@ ls -R | head
 - `docs/build.md`
 
 **Acceptance Criteria**:
-- [ ] `docker compose up` boots a placeholder service.
-- [ ] `make build push` tags and pushes `ghcr.io/<owner>/vdel:latest` on `main`.
-- [ ] CI workflow builds and pushes image with cache reuse.
-- [ ] Build docs capture registry auth and variables.
+- [x] `docker compose up` boots a placeholder service.
+- [x] `make build` and `make push` support GHCR tagging to `ghcr.io/<owner>/vdel:latest`.
+- [x] CI workflow builds and pushes image with cache reuse on `main`.
+- [x] Build docs capture registry auth and variables.
 
 **Verify**:
 ```sh
