@@ -13,13 +13,14 @@ services:
       - vdel_codeserver:/home/developer/.local/share/code-server
 
   desktop:
-    image: lscr.io/linuxserver/webtop:xfce
+    image: ghcr.io/linuxserver/webtop:ubuntu-xfce
     container_name: vdel-desktop
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
     volumes:
+      - vdel_desktop:/config
       - vdel_home:/config/workspace
     ports:
       - "8080:3000"
@@ -50,3 +51,4 @@ services:
 volumes:
   vdel_home:
   vdel_codeserver:
+  vdel_desktop:
