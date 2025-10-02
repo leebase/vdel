@@ -8,7 +8,7 @@ TAG   ?= latest
 DOCKER  ?= docker
 COMPOSE ?= docker compose
 
-.PHONY: help build push up down logs tag login-ghcr clean
+.PHONY: help build push up down logs tag login-ghcr clean lint update-toolbelt jupyter
 
 help:
 	@echo "Targets:"
@@ -19,6 +19,9 @@ help:
 	@echo "  make logs           # Tail vdel logs"
 	@echo "  make tag VERSION=x  # Tag built image with VERSION"
 	@echo "  make login-ghcr     # Login to GHCR using GHCR_TOKEN env"
+	@echo "  make lint           # Run sqlfluff version check"
+	@echo "  make update-toolbelt# Update Python toolbelt in vdel"
+	@echo "  make jupyter        # Start JupyterLab on :8888"
 
 build:
 	$(DOCKER) build -t $(IMAGE):$(TAG) .
@@ -46,3 +49,11 @@ login-ghcr:
 clean:
 	-$(DOCKER) image rm $(IMAGE):$(TAG) 2>/dev/null || true
 
+lint:
+	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) run --rm vdel sqlfluff --version
+
+update-toolbelt:
+	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) run --rm vdel bash -lc 'python -m pip install -U -r /opt/requirements.txt'
+
+jupyter:
+	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) exec -d vdel bash -lc 'jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --NotebookApp.token="" --NotebookApp.password=""'

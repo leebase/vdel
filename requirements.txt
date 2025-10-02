@@ -1,0 +1,7 @@
+# Data engineering toolbelt (PR 04)
+snowflake-cli-labs
+snowflake-connector-python
+dbt-snowflake
+sqlfluff
+sqlfluff-templater-dbt
+jupyterlab

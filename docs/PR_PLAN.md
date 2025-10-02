@@ -62,7 +62,7 @@ make build
 make push
 ```
 
-### 03. XFCE + VNC + noVNC + code-server; non-root user; expose :8080/:8443
+### 03. XFCE + VNC + noVNC + code-server; non-root user; expose :8080/:8443 — Status: DONE ✅
 **Title**: Add desktop + IDE services
 
 **Goal**: Integrate XFCE desktop, noVNC, and code-server running as `developer` user with secure defaults.
@@ -75,10 +75,10 @@ make push
 - `docs/desktop.md`
 
 **Acceptance Criteria**:
-- [ ] Container boots XFCE accessible via noVNC on :8080.
-- [ ] code-server listens on :8443 with password `vibe`.
-- [ ] Non-root `developer` owns workspace directory.
-- [ ] Supervisor manages desktop and IDE processes.
+- [x] Container boots XFCE accessible via noVNC on :8080.
+- [x] code-server listens on :8443 with password `vibe`.
+- [x] Non-root `developer` owns workspace directory.
+- [x] Supervisor manages desktop and IDE processes (temporary multi-service until convergence).
 
 **Verify**:
 ```sh
