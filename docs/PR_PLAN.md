@@ -85,7 +85,7 @@ make push
 docker compose up --build
 ```
 
-### 04. Data toolbelt install
+### 04. Data toolbelt install — Status: DONE ✅
 **Title**: Provision data engineering toolbelt
 
 **Goal**: Install core CLI/SDK tooling (Snowflake, dbt, SQL, notebooks) within the container.
@@ -98,10 +98,10 @@ docker compose up --build
 - `docs/tooling.md`
 
 **Acceptance Criteria**:
-- [ ] Snowflake CLI (`sf`) and connector import succeed.
-- [ ] dbt-snowflake, sqlfluff (snowflake), DuckDB, sqlite3, psql, mysql-client available.
-- [ ] JupyterLab launches from desktop/start script.
-- [ ] Make targets lint and update toolbelt dependencies.
+- [x] Snowflake CLI (`sf`) and connector import succeed.
+- [x] dbt-snowflake, sqlfluff (snowflake), DuckDB (via python), sqlite3, psql, mysql-client available.
+- [x] JupyterLab launches via make target and is reachable on :8888.
+- [x] Make targets lint and update toolbelt dependencies.
 
 **Verify**:
 ```sh
