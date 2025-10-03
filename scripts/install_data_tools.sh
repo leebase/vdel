@@ -13,8 +13,8 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Python tooling (user install for developer)
-sudo -u developer python -m pip install --no-cache-dir --upgrade pip
-sudo -u developer python -m pip install --no-cache-dir -r /opt/requirements.txt
+su - developer -c 'python -m pip install --user --break-system-packages --no-cache-dir --upgrade pip'
+su - developer -c 'python -m pip install --user --break-system-packages --no-cache-dir -r /opt/requirements.txt'
 
 # Provide sf alias if only 'snow' is present
 ln -sf /home/developer/.local/bin/snow /usr/local/bin/sf || true
