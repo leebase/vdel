@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     image: ${IMAGE:-ghcr.io/<owner>/vdel:latest}
     container_name: vdel
+    working_dir: /home/developer/workspace
     ports:
       - "8081:8080"
       - "8888:8888"

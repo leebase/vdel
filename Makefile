@@ -56,4 +56,4 @@ update-toolbelt:
 	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) run --rm vdel bash -lc 'python -m pip install -U -r /opt/requirements.txt'
 
 jupyter:
-	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) exec -d vdel bash -lc 'jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --NotebookApp.token="" --NotebookApp.password=""'
+	IMAGE=$(IMAGE):$(TAG) $(COMPOSE) exec -d vdel bash -lc 'jupyter lab --ServerApp.root_dir=/home/developer/workspace --no-browser --ip 0.0.0.0 --port 8888 --NotebookApp.token="" --NotebookApp.password=""'

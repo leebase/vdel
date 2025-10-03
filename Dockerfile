@@ -11,12 +11,15 @@ RUN useradd -m -u 1000 -s /bin/bash developer \
 # Copy requirements and installer
 COPY requirements.txt /opt/requirements.txt
 COPY scripts/install_data_tools.sh /opt/install_data_tools.sh
+COPY scripts/entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
 
 # Install system + Python tools
 RUN bash /opt/install_data_tools.sh
 
 EXPOSE 8080 8888
-USER developer
+USER root
 
 # Serve placeholder page; Jupyter runs on demand via make target
+ENTRYPOINT ["/opt/entrypoint.sh"]
 CMD ["python3", "-m", "http.server", "8080", "-d", "/var/www"]
