@@ -5,6 +5,9 @@ services:
       dockerfile: Dockerfile
     image: ${IMAGE:-ghcr.io/<owner>/vdel:latest}
     container_name: vdel
+    ports:
+      - "8081:8080"
+      - "8888:8888"
     environment:
       - VNC_PASSWORD=${VNC_PASSWORD:-vibe}
       - CODE_SERVER_PASSWORD=${CODE_SERVER_PASSWORD:-vibe}
